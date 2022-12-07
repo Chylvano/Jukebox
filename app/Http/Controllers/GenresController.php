@@ -2,28 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Song;
+use App\Models\Genre;
 use Illuminate\Http\Request;
 
-class SongsController extends Controller
+class GenresController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function getAllSongs()
+    public function getallGenres()
     {
-        $Songs = Song::all();
-        return view('songs/index', ["songs" => $Songs]);
+        $genres = Genre::all();
+        return view('genres/index', ["genres" => $genres]);
     }
-
-    public function getSongsByGenre($id)
-    {
-        $songs = Song::where('genre_id', $id)->get();
-        return view('genres/showSongsByGenre', compact('songs'));
-    }
-
 
     /**
      * Show the form for creating a new resource.
@@ -49,10 +42,10 @@ class SongsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Song  $song
+     * @param  \App\Models\Genre  $genre
      * @return \Illuminate\Http\Response
      */
-    public function show(Song $song)
+    public function show(Genre $genre)
     {
         //
     }
@@ -60,10 +53,10 @@ class SongsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Song  $song
+     * @param  \App\Models\Genre  $genre
      * @return \Illuminate\Http\Response
      */
-    public function edit(Song $song)
+    public function edit(Genre $genre)
     {
         //
     }
@@ -72,10 +65,10 @@ class SongsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Song  $song
+     * @param  \App\Models\Genre  $genre
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Song $song)
+    public function update(Request $request, Genre $genre)
     {
         //
     }
@@ -83,10 +76,10 @@ class SongsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Song  $song
+     * @param  \App\Models\Genre  $genre
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Song $song)
+    public function destroy(Genre $genre)
     {
         //
     }

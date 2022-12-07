@@ -25,3 +25,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/songs', [App\Http\Controllers\SongsController::class, 'index'])->name('index');
+
+Route::get('/genres', [App\Http\Controllers\GenresController::class, 'getAllGenres']);
+
+Route::get('/showSongsByGenre/{genre_id}', [App\Http\Controllers\SongsController::class, 'getSongsByGenre']);
+
+Route::get('/songs', [App\Http\Controllers\SongsController::class, 'getAllSongs']);
+

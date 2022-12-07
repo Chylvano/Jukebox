@@ -44,6 +44,15 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @guest
+
+                            <li class="nav-item">
+                                    <a class="nav-link" href="{{ ('/genres') }}">{{ __('genres') }}</a>
+                            </li>
+
+                            <li class="nav-item">
+                                    <a class="nav-link" href="{{ ('/songs') }}">{{ __('songs') }}</a>
+                            </li>
+
                             @if (Route::has('login'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>

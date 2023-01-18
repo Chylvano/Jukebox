@@ -24,6 +24,11 @@ class SongsController extends Controller
         return view('genres/showSongsByGenre', compact('songs'));
     }
 
+    public function getGenreSongs($id){
+        $songs = Song::where('genre_id', $id)->get();
+        return view('genres.showSongsByGenre', compact('songs'));
+    }
+
 
     /**
      * Show the form for creating a new resource.

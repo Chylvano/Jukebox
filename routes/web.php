@@ -32,3 +32,5 @@ Route::get('/showSongsByGenre/{genre_id}', [App\Http\Controllers\SongsController
 
 Route::get('/songs', [App\Http\Controllers\SongsController::class, 'getAllSongs']);
 
+Route::get('/details/{id}', [App\Http\Controllers\SongsController::class, 'getOneSongById']);
+

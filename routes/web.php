@@ -22,8 +22,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
-
 Route::get('/genres', [App\Http\Controllers\GenresController::class, 'getAllGenres']);
 
 Route::get('genre/showSongsByGenre/{id}', [App\Http\Controllers\SongsController::class, 'getGenreSongs']);
@@ -34,3 +32,8 @@ Route::get('/songs', [App\Http\Controllers\SongsController::class, 'getAllSongs'
 
 Route::get('/details/{id}', [App\Http\Controllers\SongsController::class, 'getOneSongById']);
 
+Route::get('/queue', [App\Http\Controllers\queueController::class, 'index']);
+
+Route::get('queue/index/{id}', [App\Http\Controllers\queueController::class, 'addToQueue']);
+
+Route::get('queue/delete', [App\Http\Controllers\queueController::class, 'clearFromSession']);

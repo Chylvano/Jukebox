@@ -12,6 +12,7 @@
                         <P class="card-text">genre: {{$song->genre->name}}</P>
                         <P class="card-text">duration: {{$song->duration}}</P>
                         <a href="{{ url('/details/' . $song->id ) }}" class="btn btn-primary">see details of {{$song->name}}</a>
+                        <a href="{{ url('/queue/index/' . $song->id ) }}" class="btn btn-primary">add {{$song->name}} to queue </a>
                     </div>
                 </div>
             </div>

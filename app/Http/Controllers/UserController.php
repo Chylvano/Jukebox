@@ -2,33 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Song;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class SongsController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function getAllSongs()
+    public function getOneUserById($id)
     {
-        $Songs = Song::all();
-        return view('songs/index', ["songs" => $Songs]);
+        return view('user.index')
+        ->with('user', User::where('id', $id)->first());
     }
 
-    public function getGenreSongs($id)
-    {
-        $songs = Song::where('genre_id', $id)->get();
-        return view('genres.showSongsByGenre', compact('songs'));
-    }
-
-    public function getOneSongById($id)
-    {
-        return view('songs.details')
-        ->with('song', Song::where('id', $id)->first());
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -54,10 +43,10 @@ class SongsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Song  $song
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(Song $song)
+    public function show(User $user)
     {
         //
     }
@@ -65,10 +54,10 @@ class SongsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Song  $song
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(Song $song)
+    public function edit(User $user)
     {
         //
     }
@@ -77,10 +66,10 @@ class SongsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Song  $song
+     * @param  \App\Models\User $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Song $song)
+    public function update(Request $request, User $user)
     {
         //
     }
@@ -88,10 +77,10 @@ class SongsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Song  $song
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Song $song)
+    public function destroy(User $user)
     {
         //
     }

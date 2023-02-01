@@ -26,9 +26,8 @@ class QueueController extends Controller
 
     public function addToQueue($id)
 {
-    $songs = song::find($id);
-    Session::push('song', $songs);
-    dd($songs);
+    $song = song::find($id);
+    Session::push('song', $song);
     return redirect('queue');
 }
 

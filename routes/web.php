@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SongsController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\SongsController::class, 'getAllSongs']);
 
 Route::get('/genres', [App\Http\Controllers\GenresController::class, 'getAllGenres']);
 
@@ -36,4 +36,8 @@ Route::get('/queue', [App\Http\Controllers\queueController::class, 'index']);
 
 Route::get('queue/index/{id}', [App\Http\Controllers\queueController::class, 'addToQueue']);
 
-Route::get('queue/delete', [App\Http\Controllers\queueController::class, 'clearFromSession']);
+Route::get('queue/index/delete', [App\Http\Controllers\queueController::class, 'clearFromSession']);
+
+Route::get('/user', [App\Http\Controllers\userController::class, 'getOneUserById']);
+
+Route::get('/playlists', [App\Http\Controllers\PlaylistController::class, 'lol']);

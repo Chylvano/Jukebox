@@ -45,27 +45,27 @@
 
                         @if (Auth::check())                     
                         <li class="nav-item">
-                                    <a class="nav-link" href="{{ ('/genres') }}">{{ __('genres') }}</a>
+                                    <a class="nav-link" href="{{ ('/genres') }}">{{ __('Genres') }}</a>
                             </li>
 
                             <li class="nav-item">
-                                    <a class="nav-link" href="{{ ('/songs') }}">{{ __('songs') }}</a>
+                                    <a class="nav-link" href="{{ ('/songs') }}">{{ __('Songs') }}</a>
                             </li>
 
                             <li class="nav-item">
-                                    <a class="nav-link" href="{{ ('/playlists') }}">{{ __('playlists') }}</a>
+                                    <a class="nav-link" href="{{ ('/playlists') }}">{{ __('Playlists') }}</a>
                             </li>
 
                             <li class="nav-item">
-                                    <a class="nav-link" href="{{ ('/queue') }}">{{ __('queue') }}</a>
+                                    <a class="nav-link" href="{{ ('/queue') }}">{{ __('Queue') }}</a>
                             </li>
                             @else
                             <li class="nav-item">
-                                    <a class="nav-link" href="{{ ('/genres') }}">{{ __('genres') }}</a>
+                                    <a class="nav-link" href="{{ ('/genres') }}">{{ __('Genres') }}</a>
                             </li>
 
                             <li class="nav-item">
-                                    <a class="nav-link" href="{{ ('/songs') }}">{{ __('songs') }}</a>
+                                    <a class="nav-link" href="{{ ('/songs') }}">{{ __('Songs') }}</a>
                             </li>
                             @endif
                         @guest
@@ -81,23 +81,20 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
+                      
 
-                                <div class="">
+                                <li class="nav-item">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
+                                    </li>
+                                <li class="nav-item">
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
-                                </div>
-                            </li>
+                                </li>
                         @endguest
                     </ul>
                 </div>

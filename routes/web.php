@@ -20,11 +20,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\SongsController::class, 'getAllSongs']);
+Route::get('/home', [App\Http\Controllers\SongsController::class, 'getAllSongsByDate']);
 
 Route::get('/genres', [App\Http\Controllers\GenresController::class, 'getAllGenres']);
 
-Route::get('genre/showSongsByGenre/{id}', [App\Http\Controllers\SongsController::class, 'getGenreSongs']);
+Route::get('/genre/showSongsByGenre/{id}', [App\Http\Controllers\SongsController::class, 'getGenreSongs']);
 
 Route::get('/showSongsByGenre/{genre_id}', [App\Http\Controllers\SongsController::class, 'getSongsByGenre']);
 
@@ -34,10 +34,12 @@ Route::get('/details/{id}', [App\Http\Controllers\SongsController::class, 'getOn
 
 Route::get('/queue', [App\Http\Controllers\queueController::class, 'index']);
 
-Route::get('queue/index/{id}', [App\Http\Controllers\queueController::class, 'addToQueue']);
+Route::get('/queue/index/{id}', [App\Http\Controllers\queueController::class, 'addToQueue']);
 
-Route::get('queue/index/delete', [App\Http\Controllers\queueController::class, 'clearFromSession']);
+Route::get('/queue/index/delete', [App\Http\Controllers\queueController::class, 'clearFromSession']);
 
 Route::get('/user', [App\Http\Controllers\userController::class, 'getOneUserById']);
 
-Route::get('/playlists', [App\Http\Controllers\PlaylistController::class, 'lol']);
+Route::get('/playlists', [App\Http\Controllers\PlaylistController::class, 'showAllPlayLists']);
+
+Route::get('/queue/index/delete', [App\Http\Controllers\PlaylistController::class, 'forgetOneFromQueue']);

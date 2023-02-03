@@ -27,7 +27,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/songs') }}">
                     {{ config('app.name', 'Jukebox') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -53,11 +53,11 @@
                             </li>
 
                             <li class="nav-item">
-                                    <a class="nav-link" href="{{ ('/playlists') }}">{{ __('Playlists') }}</a>
+                                    <a class="nav-link" href="{{ ('/queue') }}">{{ __('Queue') }}</a>
                             </li>
 
                             <li class="nav-item">
-                                    <a class="nav-link" href="{{ ('/queue') }}">{{ __('Queue') }}</a>
+                                    <a class="nav-link" href="{{ ('/playlists') }}">{{ __('Playlists') }}</a>
                             </li>
                             @else
                             <li class="nav-item">
@@ -66,6 +66,10 @@
 
                             <li class="nav-item">
                                     <a class="nav-link" href="{{ ('/songs') }}">{{ __('Songs') }}</a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                    <a class="nav-link" href="{{ ('/queue') }}">{{ __('Queue') }}</a>
                             </li>
                             @endif
                         @guest

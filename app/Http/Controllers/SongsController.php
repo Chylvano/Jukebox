@@ -18,6 +18,12 @@ class SongsController extends Controller
         return view('songs/index', ["songs" => $Songs]);
     }
 
+    public function getAllSongsByDate()
+    {
+        $Songs = Song::all();
+        return view('welcome', ["songs" => $Songs]);
+    }
+
     public function getGenreSongs($id)
     {
         $songs = Song::where('genre_id', $id)->get();

@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Playlist;
 use Illuminate\Http\Request;
 
-class Playlist extends Controller
+class PlaylistController extends Controller
 {
-    public function lol(){
+    public function showAllPlaylists(){
         
     }
 }

@@ -15,13 +15,14 @@ class QueueController extends Controller
     //     // dd($allSessions);
     // }
 
-    public function index()
+    public function index(Request $request)
 {
-    $songs = session('songs');
-    return view('queue/index', compact('songs'));
+    $song = $request->session()->get('song');
+    // dd($request->session()->all());
+    return view('queue/index', compact('song'));
 
     // $allSessions = session()->all();
-    //     // dd($allSessions);
+ 
  }
 
     public function addToQueue($id)
@@ -30,6 +31,13 @@ class QueueController extends Controller
     Session::push('song', $song);
     return redirect('queue');
 }
+
+
+
+    public function forgetOneFromQueue(request $request){
+        $request->session()->forget('id');
+        return redirect('queue');
+    }
 
     public function clearFromSession(request $request){
         $request->session()->flush();

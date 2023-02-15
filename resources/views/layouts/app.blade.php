@@ -71,6 +71,9 @@
                             <li class="nav-item">
                                     <a class="nav-link" href="{{ ('/queue') }}">{{ __('Queue') }}</a>
                             </li>
+                            <li class="nav-item">
+                                    <a class="nav-link" href="{{ ('/playlists') }}">{{ __('Playlists') }}</a>
+                            </li>
                             @endif
                         @guest
                             @if (Route::has('login'))

@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 
 class PlaylistController extends Controller
 {
-    public function showAllPlaylists(){
-        
+    public function index(){
+        {
+            return view('playlists/index');
+         }
     }
 }

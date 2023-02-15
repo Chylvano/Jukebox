@@ -2,11 +2,12 @@
 
 @section('content')
 <div class="container">
-     <div class="col-sm-2 my-1 mx-auto" >
-        <a href="{{ url('queue/clearSession') }}" class="btn btn-danger">Clear queue</a>
-     </div>
-    <br>
     @if(Session::has('song'))
+    <div class="button-box">
+            <a href="{{ url('queue/clearSession') }}" class="btn btn-danger mx-2">Clear queue</a>
+            <a href="{{ url('queue/queueToPlaylist') }}" class="btn btn-success mx-2">Add queue to playlist</a>
+    </div>
+    <br>
         <div class="row">
             @foreach(Session::get('song') as $item)
                 <div class="col-sm-3 my-3 mx-auto" >

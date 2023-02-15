@@ -38,8 +38,8 @@ Route::get('/queue/index/{id}', [App\Http\Controllers\queueController::class, 'a
 
 Route::get('/user', [App\Http\Controllers\userController::class, 'getOneUserById']);
 
-Route::get('/playlists', [App\Http\Controllers\PlaylistController::class, 'showAllPlayLists']);
-
 Route::get('/queue/clearSession', [App\Http\Controllers\queueController::class, 'clearSession']);
 
 Route::get('/queue/forgetOneFromQueue/{song_id}', [App\Http\Controllers\queueController::class, 'forgetOneFromQueue']);
+
+Route::get('/playlists', [App\Http\Controllers\PlaylistController::class, 'index']);

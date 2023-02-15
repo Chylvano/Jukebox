@@ -9,20 +9,10 @@ use App\Models\Song;
 class QueueController extends Controller
 {
 
-    // public function index()
-    // {
-    //     $allSessions = Session::all();
-    //     // dd($allSessions);
-    // }
-
     public function index(Request $request)
 {
     $song = $request->session()->get('song');
-    // dd($request->session()->all());
     return view('queue/index', compact('song'));
-
-    // $allSessions = session()->all();
- 
  }
 
     public function addToQueue($id)
@@ -34,12 +24,25 @@ class QueueController extends Controller
 
 
 
-    public function forgetOneFromQueue(request $request){
-        $request->session()->forget('id');
-        return redirect('queue');
-    }
+public function forgetOneFromQueue(request $request, $id)
+{    
+    $songs = $request->session()->get('song');
+    
+    foreach($songs as $key => $song){
+        if($song->id == $id){
+            unset($songs[$key]);
+            $request->session()->forget('song');
+            
+            foreach($songs as $song){
+                Session::push('song', $song);
+            }
 
-    public function clearFromSession(request $request){
+            return redirect('queue');
+        }
+    }
+}
+
+    public function clearSession(request $request){
         $request->session()->flush();
         return redirect('queue');
     }

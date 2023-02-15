@@ -36,10 +36,10 @@ Route::get('/queue', [App\Http\Controllers\queueController::class, 'index']);
 
 Route::get('/queue/index/{id}', [App\Http\Controllers\queueController::class, 'addToQueue']);
 
-Route::get('/queue/index/delete', [App\Http\Controllers\queueController::class, 'clearFromSession']);
-
 Route::get('/user', [App\Http\Controllers\userController::class, 'getOneUserById']);
 
 Route::get('/playlists', [App\Http\Controllers\PlaylistController::class, 'showAllPlayLists']);
 
-Route::get('/queue/index/delete', [App\Http\Controllers\PlaylistController::class, 'forgetOneFromQueue']);
+Route::get('/queue/clearSession', [App\Http\Controllers\queueController::class, 'clearSession']);
+
+Route::get('/queue/forgetOneFromQueue/{song_id}', [App\Http\Controllers\queueController::class, 'forgetOneFromQueue']);

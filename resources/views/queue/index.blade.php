@@ -5,7 +5,7 @@
     @if(Session::has('song'))
     <div class="button-box">
             <a href="{{ url('queue/clearSession') }}" class="btn btn-danger mx-2">Clear queue</a>
-            <a href="{{ url('queue/queueToPlaylist') }}" class="btn btn-success mx-2">Add queue to playlist</a>
+            <a href="{{ url('playlists/playlists') }}" class="btn btn-success mx-2">Add queue to playlist</a>
     </div>
     <br>
         <div class="row">

@@ -42,4 +42,13 @@ Route::get('/queue/clearSession', [App\Http\Controllers\queueController::class, 
 
 Route::get('/queue/forgetOneFromQueue/{song_id}', [App\Http\Controllers\queueController::class, 'forgetOneFromQueue']);
 
+Route::get('/queue/toPLaylist', [App\Http\Controllers\queueController::class, 'insertQueueToDb']);
+
 Route::get('/playlists', [App\Http\Controllers\PlaylistController::class, 'index']);
+
+Route::get('/playlists/playlists', [App\Http\Controllers\PlaylistController::class, 'getAllPlaylists']);
+
+Route::get('/queuetoplaylist', [App\Http\Controllers\PlaylistController::class, 'insertQueueToDb']);
+
+Route::get('/playlistdetails/{id}', [PlaylistController::class, 'getPlaylistDetails']);
+

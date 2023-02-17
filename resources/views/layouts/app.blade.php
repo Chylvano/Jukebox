@@ -71,9 +71,6 @@
                             <li class="nav-item">
                                     <a class="nav-link" href="{{ ('/queue') }}">{{ __('Queue') }}</a>
                             </li>
-                            <li class="nav-item">
-                                    <a class="nav-link" href="{{ ('/playlists') }}">{{ __('Playlists') }}</a>
-                            </li>
                             @endif
                         @guest
                             @if (Route::has('login'))
@@ -91,7 +88,7 @@
                       
 
                                 <li class="nav-item">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <a class="nav-link" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}

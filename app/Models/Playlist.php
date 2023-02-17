@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Playlist extends Model
 {
     use HasFactory;
+
+    protected $playlist = 'playlist';
+    public $timestamps = false;
+    protected $fillable = [
+        'name', 'user_id'
+    ];
 }

@@ -12,6 +12,8 @@ class GenresController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    //Retrieves all genres from db
     public function getallGenres()
     {
         $genres = Genre::all();

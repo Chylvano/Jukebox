@@ -17,12 +17,10 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-
                                 @foreach($playlists as $playlist)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $playlist->name }}</td>
-
                                         <td>
                                             <form action="{{ url('playlists/' . $playlist->id . "/" . $song_id) }}" method="get">
                                                 @csrf

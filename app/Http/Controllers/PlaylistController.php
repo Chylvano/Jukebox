@@ -39,11 +39,13 @@ class PlaylistController extends Controller
         return redirect('playlists');
     }
 
-    public function delete($id){
-        $data = Playlist::find($id);
+    public function deletePlaylistAndSongs($id){
+        $data = Playlist::find($id) ;
         $data->delete();
+        $playlist_songs = Playlist_song::where('playlist_id', $id)->get();
+        $playlist_songs->each->delete();
         return redirect('playlists');
-   }
+    }
 
    public function edit($id)
     {
@@ -68,25 +70,29 @@ class PlaylistController extends Controller
         return view('playlists.details')
         ->with('playlist', Playlist::where('id', $id)->first())
         ->with(["songs"=>$songs]);
-
     }
 
     public function getAllPlaylistsWithSong_id($id){
-
-
         $playlists = Playlist::where('user_id', Auth::user()->id)->get();
         return view('playlists/playlist_song', ["playlists"=>$playlists], ["song_id"=>$id]);
-
     }
 
-public function storeSongToPlaylist($playlist_id, $song_id){
-
+    public function storeSongToPlaylist($playlist_id, $song_id){
         playlist_song::create([
             'playlist_id' => $playlist_id,
             'song_id' => $song_id
-
         ]);
         return redirect('playlists/details/' . $playlist_id);
+    }
+
+    public function deleteSongFromPlaylist($playlist_id){
+            $playlist_song = Playlist_song::where('playlist_id', $playlist_id)->get();
+            $playlist_song->each->delete();
+            return redirect('playlists/details/' . $playlist_id);
+    }
+
+    public function queueToPlaylist(){
+        return view( 'playlists.create');
     }
 
 }

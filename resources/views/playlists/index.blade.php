@@ -20,18 +20,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-@foreach($playlists as $playlist)
-                                    <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $playlist->name }}</td>
-
-                                        <td>
-                                            <a href="{{ url('/playlists/' . 'details/' . $playlist->id) }}" class="btn btn-info btn-sm">View</button></a>
-                                            <a href="{{ url('/playlists/' . 'edit/' . $playlist->id) }}" class="btn btn-primary btn-sm">Edit</button></a>
-                                            <a href={{"delete/" .$playlist->id}} class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')"> Delete </a>
-                                        </td>
-                                    </tr>
-                                @endforeach
+                                    @foreach($playlists as $playlist)
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $playlist->name }}</td>
+                                            <td>
+                                                <a href="{{ url('/playlists/' . 'details/' . $playlist->id) }}" class="btn btn-info btn-sm">View</button></a>
+                                                <a href="{{ url('/playlists/' . 'edit/' . $playlist->id) }}" class="btn btn-primary btn-sm">Edit</button></a>
+                                                <a href={{"delete/" .$playlist->id}} class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')"> Delete </a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

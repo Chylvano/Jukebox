@@ -68,3 +68,8 @@ Route::get('playlists/playlist_song/{id}', [App\Http\Controllers\PlaylistControl
 
 Route::get('playlists/{playlist_id}/{song_id}', [App\Http\Controllers\PlaylistController::class, 'storeSongToPlaylist']);
 
+Route::get('playlists/playlist_song', [App\Http\Controllers\PlaylistController::class, 'queueToPlaylist']);
+
+Route::get('delete/{id}', [App\Http\Controllers\PlaylistController::class, 'deletePlaylistAndSongs']);
+
+Route::get('playlists/details/delete/{playlist_id}', [App\Http\Controllers\PlaylistController::class, 'deleteSongFromPlaylist']);

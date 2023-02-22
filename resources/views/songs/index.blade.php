@@ -18,7 +18,7 @@
                         <br>
                         <br>
                         @auth
-                        <a href="{{ url('/playlists/playlist_song/' . $song->id ) }}" class="btn btn-success">add {{$song->name}} to playlist </a>
+                            <a href="{{ url('/playlists/playlist_song/' . $song->id ) }}" class="btn btn-success">add {{$song->name}} to playlist </a>
                         @endauth
                     </div>
                 </div>

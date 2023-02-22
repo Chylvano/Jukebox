@@ -13,9 +13,9 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title">Song: {{$song[0]->name}}</h5>
-                                    <p class="card-text">artist: {{$song[0]->artist}}</p>
-                                    <p class="card-text">length: {{$song[0]->length}}</p>
-                                    <p class="hidetime" style="display: none">{{$duration += strtotime($song[0]->length)}}</p>
+                                    <p class="card-text">Artist: {{$song[0]->artist}}</p>
+                                    <p class="card-text">Duration: {{$song[0]->duration}}</p>
+                                    <p class="hidetime" style="display: none">{{$duration += strtotime($song[0]->duration)}}</p>
                                     <a href={{"delete/" .$song[0]->id . "/" . $playlist->id}} class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')"> Delete out {{$playlist->name}} </a>
                                 </div>
                             </div>

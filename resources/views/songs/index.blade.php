@@ -15,6 +15,11 @@
                         <br>
                         <br>
                         <a href="{{ url('/queue/index/' . $song->id ) }}" class="btn btn-success">add {{$song->name}} to queue </a>
+                        <br>
+                        <br>
+                        @auth
+                        <a href="{{ url('/playlists/playlist_song/' . $song->id ) }}" class="btn btn-success">add {{$song->name}} to playlist </a>
+                        @endauth
                     </div>
                 </div>
                 <br>

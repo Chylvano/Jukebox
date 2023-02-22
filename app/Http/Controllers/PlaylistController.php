@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Playlist;
 use App\Models\Song;
 use App\SessionManagement;
@@ -10,8 +11,8 @@ use App\Models\Playlist_song;
 class PlaylistController extends Controller
 {
     public function index(){
-        $playlists = Playlist::all();
-        return view ('playlists/index', ['playlists' => $playlists]);
+        $playlists = Playlist::where('user_id', Auth::user()->id)->get();
+        return view('playlists.index', ["playlists"=>$playlists]);
     }
     
     public function getAllPlaylists(Request $request){
@@ -69,4 +70,23 @@ class PlaylistController extends Controller
         ->with(["songs"=>$songs]);
 
     }
+
+    public function getAllPlaylistsWithSong_id($id){
+
+
+        $playlists = Playlist::where('user_id', Auth::user()->id)->get();
+        return view('playlists/playlist_song', ["playlists"=>$playlists], ["song_id"=>$id]);
+
+    }
+
+public function storeSongToPlaylist($playlist_id, $song_id){
+
+        playlist_song::create([
+            'playlist_id' => $playlist_id,
+            'song_id' => $song_id
+
+        ]);
+        return redirect('playlists/details/' . $playlist_id);
+    }
+
 }

@@ -63,3 +63,8 @@ Route::get('playlists/edit/{id}', [App\Http\Controllers\PlaylistController::clas
 Route::post('playlists/storePlaylist/{id}', [App\Http\Controllers\PlaylistController::class, 'storePlaylist']);
 
 Route::get('playlists/details/{id}', [App\Http\Controllers\PlaylistController::class, 'getPlaylistById']);
+
+Route::get('playlists/playlist_song/{id}', [App\Http\Controllers\PlaylistController::class, 'getAllPlaylistsWithSong_id']);
+
+Route::get('playlists/{playlist_id}/{song_id}', [App\Http\Controllers\PlaylistController::class, 'storeSongToPlaylist']);
+

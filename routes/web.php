@@ -52,3 +52,14 @@ Route::get('/queuetoplaylist', [App\Http\Controllers\PlaylistController::class, 
 
 Route::get('/playlistdetails/{id}', [PlaylistController::class, 'getPlaylistDetails']);
 
+Route::get('/playlists/create', [App\Http\Controllers\PlaylistController::class, 'create']);
+
+Route::post('/playlists', [App\Http\Controllers\PlaylistController::class, 'store']);
+
+Route::get('delete/{id}', [App\Http\Controllers\PlaylistController::class, 'delete']);
+
+Route::get('playlists/edit/{id}', [App\Http\Controllers\PlaylistController::class, 'edit']);
+
+Route::post('playlists/storePlaylist/{id}', [App\Http\Controllers\PlaylistController::class, 'storePlaylist']);
+
+Route::get('playlists/details/{id}', [App\Http\Controllers\PlaylistController::class, 'getPlaylistById']);
